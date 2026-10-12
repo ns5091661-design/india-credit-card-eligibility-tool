@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free educational credit-card readiness checklist for India. Estimate existing EMI burden and review common factors before applying.">
+  <meta name="theme-color" content="#10233f">
+  <title>India Credit Card Readiness Checklist</title>
+  <style>
+    :root{color-scheme:light;--ink:#162238;--muted:#58677c;--paper:#f5f7fb;--card:#fff;--line:#dce3ee;--accent:#174ea6;--soft:#eaf1ff}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    header{background:#10233f;color:#fff;padding:42px 20px 36px}header .wrap,main{max-width:900px;margin:auto}
+    .eyebrow{font-size:.78rem;font-weight:750;letter-spacing:.1em;text-transform:uppercase;color:#c9d8f5}
+    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.12;margin:10px 0 14px;letter-spacing:-.03em}
+    header p{max-width:690px;color:#e0e9f8;margin:0}
+    main{padding:28px 16px 52px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 5px 20px rgba(21,43,77,.04)}
+    h2{font-size:1.25rem;margin:0 0 12px}h3{font-size:1.05rem;margin:22px 0 6px}
+    .muted{color:var(--muted)}label{display:block;font-weight:650;margin:14px 0 5px}
+    input[type=number]{width:100%;padding:12px 13px;border:1px solid #bcc8d9;border-radius:9px;font:inherit;color:var(--ink);background:white}
+    button{border:0;border-radius:10px;background:var(--accent);color:white;padding:11px 16px;font:inherit;font-weight:700;cursor:pointer;margin-top:14px}
+    button:focus-visible,input:focus-visible{outline:3px solid #8bb6ff;outline-offset:2px}
+    .result{background:var(--soft);padding:14px;border-radius:10px;margin-top:14px}
+    .result strong{display:block;font-size:1.65rem;line-height:1.4}.checklist{display:grid;gap:12px;margin-top:14px}
+    .check{display:flex;gap:10px;align-items:flex-start;padding:11px;border:1px solid var(--line);border-radius:10px}
+    .check input{margin-top:6px;width:18px;height:18px;flex:0 0 auto}.check span{display:block}
+    .score{font-weight:750;margin-top:15px}.notice{border-left:4px solid #8aa5d4;padding:10px 14px;background:#f0f4fc;border-radius:0 8px 8px 0}
+    a{color:#174ea6;text-underline-offset:3px}footer{max-width:900px;margin:auto;padding:0 16px 36px;color:var(--muted);font-size:.92rem}
+    @media(max-width:700px){.layout{grid-template-columns:1fr}header{padding-top:32px}.card{padding:18px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">India · Free educational tool</div>
+    <h1>Credit Card Readiness Checklist</h1>
+    <p>Review a few common factors before applying for a credit card. This tool helps you prepare; it cannot tell you whether a bank will approve an application.</p>
+  </div>
+</header>
+<main>
+  <div class="layout">
+    <section class="card" aria-labelledby="emi-title">
+      <h2 id="emi-title">Check your monthly EMI burden</h2>
+      <p class="muted">Use your approximate monthly take-home income and the total of your existing loan EMIs. Values stay in this browser session.</p>
+      <label for="income">Monthly take-home income (₹)</label>
+      <input id="income" type="number" min="1" inputmode="decimal" placeholder="e.g. 45000">
+      <label for="emis">Total existing monthly EMIs (₹)</label>
+      <input id="emis" type="number" min="0" inputmode="decimal" placeholder="e.g. 8000">
+      <button type="button" id="calculate">Calculate EMI share</button>
+      <div id="emiResult" class="result" aria-live="polite">
+        <strong>—</strong>
+        <span>Enter both amounts to see what percentage of monthly take-home income goes toward existing EMIs.</span>
+      </div>
+      <p class="muted">There is no universal EMI percentage that guarantees credit-card approval. Issuers assess applications using their own policies and additional information.</p>
+    </section>
+    <section class="card" aria-labelledby="check-title">
+      <h2 id="check-title">Before you apply</h2>
+      <p class="muted">Tick each item you have checked or prepared. Your result is a preparation checklist only—not an eligibility score.</p>
+      <div class="checklist">
+        <label class="check"><input type="checkbox"><span><b>Regular income</b><br><span class="muted">I know what income proof the issuer asks for.</span></span></label>
+        <label class="check"><input type="checkbox"><span><b>Credit history reviewed</b><br><span class="muted">I have reviewed my credit information, where available.</span></span></label>
+        <label class="check"><input type="checkbox"><span><b>Repayment record checked</b><br><span class="muted">I have checked for missed or late payments and inaccuracies.</span></span></label>
+        <label class="check"><input type="checkbox"><span><b>Existing debt considered</b><br><span class="muted">I have considered current EMIs and monthly expenses.</span></span></label>
+        <label class="check"><input type="checkbox"><span><b>Documents ready</b><br><span class="muted">I can provide the identity, address, and income documents requested.</span></span></label>
+        <label class="check"><input type="checkbox"><span><b>Issuer's latest terms reviewed</b><br><span class="muted">I checked the current eligibility, fees, charges, and conditions on the official website.</span></span></label>
+      </div>
+      <div class="score" id="checkResult" aria-live="polite">0 of 6 preparation items checked.</div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:18px">
+    <h2>What affects credit-card eligibility?</h2>
+    <p>Issuers may consider age, income, employment, credit history, repayment behaviour, current obligations, location, and their own internal policies. The minimum income and acceptable credit profile vary by card and applicant. A published eligibility condition is not a promise of approval.</p>
+    <h3>Use reliable sources</h3>
+    <p>Start with the card issuer's official product terms. You can also review your credit information through <a href="https://www.cibil.com/" target="_blank" rel="noopener noreferrer">TransUnion CIBIL</a> and read consumer-awareness information from the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>.</p>
+    <h3>Read the India-focused guide</h3>
+    <p>For a plain-language overview of income, credit history, and fees, read <a href="https://data-arbitrage-engine.webflow.io/credit-card-eligibility">Credit Card Eligibility in India</a>. More explainers are available in the <a href="https://data-arbitrage-engine.webflow.io/finance">finance guides</a> section of Data Arbitrage Engine.</p>
+    <div class="notice"><b>Important:</b> This independent educational resource is not a bank, credit bureau, financial adviser, or government service. It does not check your CIBIL score, contact lenders, or store submitted values. Never enter your PAN, Aadhaar, card number, passwords, or OTP here.</div>
+  </section>
+</main>
+<footer>
+  <p>Made to support informed comparison—not to promise approval. Confirm all current terms directly with the relevant issuer. <a href="https://data-arbitrage-engine.webflow.io/">Data Arbitrage Engine</a>.</p>
+</footer>
+<script>
+(function(){
+  const income = document.getElementById('income');
+  const emis = document.getElementById('emis');
+  const result = document.getElementById('emiResult');
+  document.getElementById('calculate').addEventListener('click', function(){
+    const i = Number(income.value), e = Number(emis.value);
+    if(!income.value || !emis.value || !Number.isFinite(i) || !Number.isFinite(e) || i <= 0 || e < 0){
+      result.innerHTML = '<strong>Check the amounts</strong><span>Enter monthly take-home income above ₹0 and existing EMIs of ₹0 or more.</span>';
+      return;
+    }
+    const pct = e / i * 100;
+    result.innerHTML = '<strong>' + pct.toFixed(1) + '%</strong><span>of your monthly take-home income goes toward the EMIs entered. This is a budgeting measure only, not a bank approval threshold.</span>';
+  });
+  const checks = Array.from(document.querySelectorAll('.checklist input'));
+  const checkResult = document.getElementById('checkResult');
+  checks.forEach(function(input){
+    input.addEventListener('change', function(){
+      const count = checks.filter(function(x){ return x.checked; }).length;
+      checkResult.textContent = count + ' of 6 preparation items checked.';
+    });
+  });
+})();
+</script>
+</body>
+</html>
